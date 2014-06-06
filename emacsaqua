@@ -1,0 +1,189 @@
+(add-to-list 'load-path "~/.emacs.d/auto-install/")
+(add-to-list 'load-path "~/.emacs.d/Plugins/")
+
+
+;;,----------------
+;;| load solarized:
+;;`----------------
+
+;;,-------------------------------------------------------
+;;| (setq custom-theme-directory "~/.emacs.d/color-theme")
+;;| (require 'color-theme)
+;;| (load-theme 'solarized-dark )
+;;| 
+;;`-------------------------------------------------------
+
+
+;; required files
+(require 'linum+)
+
+
+;; keyboard settings
+;;;;;;;;;;;;;;;;;;;;;;;;;
+;; custom keyboard stuff
+(define-key osx-key-mode-map (kbd "A-o") 'occur)
+(define-key osx-key-mode-map (kbd "A-m") 'cdlatex-mode)
+(global-set-key (kbd "A-r") 'regexp-builder)
+(global-set-key (kbd "A-k") 'hippie-expand)
+(global-set-key (kbd "C-`") 'other-window)
+(global-set-key (kbd "C-S-<tab>") 'previous-tab-or-buffer)
+(global-set-key (kbd "<C-tab>") 'next-tab-or-buffer) 
+(global-set-key (kbd "M-m") 'tabbar-window-merge-windows) 
+(global-set-key (kbd "A-b") 'ido-switch-buffer) 
+(global-set-key (kbd "C-x C-b") 'buffer-menu)
+(global-set-key (kbd "M-q") 'fill-paragraph)
+(global-set-key (kbd "M-<tab>") 'ac-complete)
+(keyboard-translate ?\C-t ?\C-x)
+(global-set-key "\M-y" 'popup-kill-ring)
+(global-set-key (kbd "M-t") 'toggle-truncate-lines)
+(global-linum-mode t) 
+
+;;;;;;;;;;;;;;;;;;;;;;
+;; Other Random Customizations
+;;prevent those tilde files from showing up everywhere. 
+(setq
+   backup-by-copying t      ; don't clobber symlinks
+   backup-directory-alist
+    '(("." . "~/.emacsbackups"))    ; don't litter my fs tree
+   delete-old-versions t
+   kept-new-versions 6
+   kept-old-versions 2
+   version-control t)       ; use versioned backups
+
+;; prevent horiz splits
+(setq split-height-threshold 5999)
+(setq split-width-threshold 5999)
+
+;; linnum settings
+(global-linum-mode t) 
+
+;;;;;
+;; Some random stuff to get Icicles behavior to work the way I want it to
+(define-key minibuffer-local-completion-map " " "-") ;; changes icicles behavior so that space inserts a "-"
+(define-key minibuffer-local-must-match-map " " "-") ;; Changes icicles behavior so that space inserts a "-"
+;;both of the preceeding lines are necessarry.
+;;(autoload 'longlines-mode "longlines" "Chop long lines" t)
+;;(add-hook 'text-mode-hook 'visual-line-mode) ; adds visual line mode to text mode, unecessarry in aquamacs
+
+
+;; ido mode stuff
+(add-hook 'minibuffer-setup-hook
+      (lambda () (setq truncate-lines nil)));; sets wrap in minibuffer, for ido mode
+ 
+;; ruby mode stuff
+(require 'ruby-electric)
+(add-hook 'ruby-mode-hook (lambda () (ruby-electric-mode t)))
+
+;; set up auto-revert mode
+   (global-auto-revert-mode t)
+
+(aquamacs-autoface-mode 0) ;; turns off autoface mode. 
+
+
+ ;;,------------------
+ ;;| autocomplete stuff
+ ;;`------------------
+
+
+(require 'auto-complete-config)
+;(setq ac-auto-start )
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/Plugins/ac-dict")
+(ac-config-default)
+
+(global-set-key (kbd "M-<tab>") 'auto-complete) ;; sets autocomplete to show up after alt-tab
+(setq ac-use-menu-map t)
+;; Default settings
+(define-key ac-menu-map "\C-n" 'ac-next)
+(define-key ac-menu-map "\C-p" 'ac-previous)
+
+(require 'cdlatex)
+(require 'popup-kill-ring)
+(load-file "/Users/tom/.emacs.d/Plugins/ess-12.09-2/lisp/ess-site.el")
+(ess-toggle-underscore nil)
+
+
+
+;;,---------------
+;;| Comment Boxes!
+;;`---------------
+
+
+(require 'rebox2)                              
+
+(global-set-key  (kbd "A-/") 'rebox-cycle) 
+
+
+
+;;(add-to-list 'load-path "/path/to/anything/folder")
+;;(require 'anything-match-plugin)
+;;(require 'anything-config)
+
+
+;;,--------------------
+;;| ace jump mode stuff
+;;`--------------------
+;;
+;; ace jump mode major function
+;; 
+(add-to-list 'load-path "/full/path/where/ace-jump-mode.el/in/")
+(autoload
+  'ace-jump-mode
+  "ace-jump-mode"
+  "Emacs quick move minor mode"
+  t)
+;; you can select the key you prefer to
+(define-key global-map (kbd "C-x ,") 'ace-jump-mode)
+
+
+
+;; 
+;; enable a more powerful jump back function from ace jump mode
+;;
+(autoload
+  'ace-jump-mode-pop-mark
+  "ace-jump-mode"
+  "Ace jump back:-)"
+  t)
+(eval-after-load "ace-jump-mode"
+  '(ace-jump-mode-enable-mark-sync))
+(define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
+
+;;,---------------
+;;| for viper mode
+;;`---------------
+(setq viper-ex-style-editing 'nil)
+(setq viper-ex-style-motion 'nil)
+
+
+;;,----------------------------------
+;;| for evil mode (better than viper)
+;;`----------------------------------
+ (require 'evil)
+    (evil-mode 1)
+;;,-----------------------------------
+;;| makes kj switch out of insert mode
+;;`-----------------------------------
+
+
+(define-key evil-insert-state-map "k" #'cofi/maybe-exit)
+
+(evil-define-command cofi/maybe-exit ()
+  :repeat change
+  (interactive)
+  (let ((modified (buffer-modified-p)))
+    (insert "k")
+    (let ((evt (read-event (format "Insert %c to exit insert state" ?j)
+               nil 0.5)))
+      (cond
+       ((null evt) (message ""))
+       ((and (integerp evt) (char-equal evt ?j))
+    (delete-char -1)
+    (set-buffer-modified-p modified)
+    (push 'escape unread-command-events))
+       (t (setq unread-command-events (append unread-command-events
+                          (list evt))))))))
+
+
+
+;;    (load-theme 'solarized-dark)
+(set-default-font "-apple-Source_Code_Pro_for_Powerline_for_Powerline-light-light-light-*-*-*-*-*-m-0-iso10646-1")

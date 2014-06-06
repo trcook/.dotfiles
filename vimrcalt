@@ -1,0 +1,42 @@
+" This must be first, because it changes other options as side effect
+set nocompatible
+
+" Use pathogen to easily modify the runtime path to include all
+" plugins under the ~/.vim/bundle directory
+call pathogen#helptags()
+call pathogen#runtime_append_all_bundles()
+set hlsearch      " highlight search terms
+set incsearch     " show search matches as you type
+set number        " always show line numbers
+set ignorecase    " ignore case when searching
+set smartcase     " ignore case if search pattern is all lowercase,
+                  "    case-sensitive otherwise
+set nobackup
+set lbr " sets wrap at word 
+set noswapfile
+if &t_Co >= 256 || has("gui_running")
+   colorscheme delek
+endif
+
+if &t_Co > 2 || has("gui_running")
+   " switch syntax highlighting on, when the terminal has colors
+   syntax on
+endif
+
+
+" change the mapleader from \ to ,
+let mapleader=","
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+" sets meta y to yank ring show
+map <M-y> :YRShow<CR> 	
+" sets meta y to yank ring show in the insert mode
+imap <M-y> <esc>:YRShow<CR> 
+
+imap <M-tab> <C-x><C-o>
+imap jj <esc>
