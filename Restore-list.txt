@@ -1,0 +1,53 @@
+This document is a list of what to do to get up and running after hd format and os reinstall:
+
+1. Applications: 
+	From App Store:
+		codebox
+		displaymenu
+		marked
+	From web: (caskinstaller.sh should automate some of this)
+		sublime text
+		Dash
+		1password
+		alfred
+		cyberduck
+		notebook
+		sourcetree
+		scrivner
+		R
+		iterm2
+		Aquamacs (if you absolutely must)
+2. Ruby and Homebrew:
+	Install RVM:
+		\curl -sSL https://get.rvm.io | bash -s stable
+
+	If needed, install gem:
+		https://rubygems.org/pages/download
+
+	Install Homebrew:
+		ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"	
+		setup homebrew for bulk install: 
+		brew tap caskroom/cask
+		brew install caskroom/cask/brew-cask
+	
+	Installed packages: 
+		rcm
+		git
+		boxes
+		cabal-install
+		apple-gcc42
+		openssl (might want to avoid this)
+		tidy
+		sqllite
+
+
+Install Rcm
+		brew tap thoughtbot/formulae
+		brew install rcm
+If haven't done already: Grab the dotfiles repo from git: 
+git clone https://github.com/trcook/.dotfiles.git ~/.dotfiles
+
+
+
+
+

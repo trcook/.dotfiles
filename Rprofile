@@ -4,7 +4,7 @@
 library(boot)
 if(interactive()){
 #       library(colorout)
-      
+       options(datatable.print.nrows=Inf)
        if(Sys.getenv("TERM") != "linux" && Sys.getenv("TERM") != "")
 #	   setOutputColors256(verbose = FALSE)
        if(nchar(Sys.getenv("DISPLAY")) > 1){
@@ -20,6 +20,7 @@ if(interactive()){
 
 # Some global variables that I always use: 
 dissertation_home<-"~/Documents/Boulder/Projects/Dissertation/Data"
+.boxcar_token<-"fbk7wDNoTKbP8BJb9U4k"
 require('tmisc')
 print("hello! I'm the default .Rprofile")
 .Rprofiles_loaded<-list('~/.Rprofile')
