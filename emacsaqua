@@ -1,5 +1,5 @@
-(add-to-list 'load-path "~/.emacs.d/auto-install/")
-(add-to-list 'load-path "~/.emacs.d/Plugins/")
+;;(add-to-list 'load-path "~/.emacs.d/auto-install/")
+;;(add-to-list 'load-path "~/.emacs.d/Plugins/")
 
 
 ;;,----------------
@@ -15,7 +15,7 @@
 
 
 ;; required files
-(require 'linum+)
+;;(require 'linum+)
 
 
 ;; keyboard settings
@@ -59,20 +59,20 @@
 
 ;;;;;
 ;; Some random stuff to get Icicles behavior to work the way I want it to
-(define-key minibuffer-local-completion-map " " "-") ;; changes icicles behavior so that space inserts a "-"
-(define-key minibuffer-local-must-match-map " " "-") ;; Changes icicles behavior so that space inserts a "-"
+;;(define-key minibuffer-local-completion-map " " "-") ;; changes icicles behavior so that space inserts a "-"
+;;(define-key minibuffer-local-must-match-map " " "-") ;; Changes icicles behavior so that space inserts a "-"
 ;;both of the preceeding lines are necessarry.
 ;;(autoload 'longlines-mode "longlines" "Chop long lines" t)
 ;;(add-hook 'text-mode-hook 'visual-line-mode) ; adds visual line mode to text mode, unecessarry in aquamacs
 
 
 ;; ido mode stuff
-(add-hook 'minibuffer-setup-hook
-      (lambda () (setq truncate-lines nil)));; sets wrap in minibuffer, for ido mode
+;;(add-hook 'minibuffer-setup-hook
+;;      (lambda () (setq truncate-lines nil)));; sets wrap in minibuffer, for ido mode
  
 ;; ruby mode stuff
-(require 'ruby-electric)
-(add-hook 'ruby-mode-hook (lambda () (ruby-electric-mode t)))
+;;(require 'ruby-electric)
+;;(add-hook 'ruby-mode-hook (lambda () (ruby-electric-mode t)))
 
 ;; set up auto-revert mode
    (global-auto-revert-mode t)
@@ -151,39 +151,39 @@
 ;;,---------------
 ;;| for viper mode
 ;;`---------------
-(setq viper-ex-style-editing 'nil)
-(setq viper-ex-style-motion 'nil)
+;;(setq viper-ex-style-editing 'nil)
+;;(setq viper-ex-style-motion 'nil)
 
 
 ;;,----------------------------------
 ;;| for evil mode (better than viper)
 ;;`----------------------------------
- (require 'evil)
-    (evil-mode 1)
+;; (require 'evil)
+;;    (evil-mode 1)
 ;;,-----------------------------------
 ;;| makes kj switch out of insert mode
 ;;`-----------------------------------
 
 
-(define-key evil-insert-state-map "k" #'cofi/maybe-exit)
+;;(define-key evil-insert-state-map "k" #'cofi/maybe-exit)
 
-(evil-define-command cofi/maybe-exit ()
-  :repeat change
-  (interactive)
-  (let ((modified (buffer-modified-p)))
-    (insert "k")
-    (let ((evt (read-event (format "Insert %c to exit insert state" ?j)
-               nil 0.5)))
-      (cond
-       ((null evt) (message ""))
-       ((and (integerp evt) (char-equal evt ?j))
-    (delete-char -1)
-    (set-buffer-modified-p modified)
-    (push 'escape unread-command-events))
-       (t (setq unread-command-events (append unread-command-events
-                          (list evt))))))))
+;;(evil-define-command cofi/maybe-exit ()
+;;  :repeat change
+;;  (interactive)
+;;  (let ((modified (buffer-modified-p)))
+;;    (insert "k")
+;;    (let ((evt (read-event (format "Insert %c to exit insert state" ?j)
+;;               nil 0.5)))
+;;      (cond
+;;       ((null evt) (message ""))
+;;       ((and (integerp evt) (char-equal evt ?j))
+;;    (delete-char -1)
+;;    (set-buffer-modified-p modified)
+;;    (push 'escape unread-command-events))
+;;       (t (setq unread-command-events (append unread-command-events
+;;                          (list evt))))))))
 
 
 
 ;;    (load-theme 'solarized-dark)
-(set-default-font "-apple-Source_Code_Pro_for_Powerline_for_Powerline-light-light-light-*-*-*-*-*-m-0-iso10646-1")
+;;(set-default-font "-apple-Source_Code_Pro_for_Powerline_for_Powerline-light-light-light-*-*-*-*-*-m-0-iso10646-1")

@@ -50,6 +50,7 @@ $endif$
 $endif$
 $if(listings)$
 \usepackage{listings}
+\usepackage{Sweavel}
 $endif$
 $if(lhs)$
 \lstnewenvironment{code}{\lstset{language=Haskell,basicstyle=\small\ttfamily}}{}
