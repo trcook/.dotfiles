@@ -1,29 +1,14 @@
 This document is a list of what to do to get up and running after hd format and os reinstall:
 
-1. Applications: 
-	From App Store:
-		codebox
-		displaymenu
-		marked
-	From web: (caskinstaller.sh should automate some of this)
-		sublime text
-		Dash
-		1password
-		alfred
-		cyberduck
-		notebook
-		sourcetree
-		scrivner
-		R
-		iterm2
-		Aquamacs (if you absolutely must)
-2. Ruby and Homebrew:
+1. Ruby and Homebrew:
 	Install RVM:
 		\curl -sSL https://get.rvm.io | bash -s stable
 
 	If needed, install gem:
 		https://rubygems.org/pages/download
+	Run the brewinstaller.sh shell, which installs homebrew and some other stuff, then go to step 2. 
 
+	Alternatively, do this manually:
 	Install Homebrew:
 		ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"	
 		setup homebrew for bulk install: 
@@ -36,18 +21,48 @@ This document is a list of what to do to get up and running after hd format and 
 		boxes
 		cabal-install
 		apple-gcc42
-		openssl (might want to avoid this)
+		openssl (might want to avoid this -- heartbleed bug)
 		tidy
 		sqllite
 
-
-Install Rcm
-		brew tap thoughtbot/formulae
-		brew install rcm
-If haven't done already: Grab the dotfiles repo from git: 
-git clone https://github.com/trcook/.dotfiles.git ~/.dotfiles
-
+		Install Rcm
+			brew tap thoughtbot/formulae
+			brew install rcm
+		If haven't done already: Grab the dotfiles repo from git: 
+		git clone https://github.com/trcook/.dotfiles.git ~/.dotfiles
 
 
+2. Applications: 
+	From App Store:
+		codebox
+		displaymenu
+		marked
+	Run brewinstaller.sh to install homebrew and some homebrew packages.
+	Run caskinstaller.sh to install a bunch of apps:
+		alfred
+		dash
+		rstudio
+		dropbox
+		sourcetree
+		iterm2
+		pandoc
+	Other apps to download and install from web:
+		sublime text 3
+		1password
+		alfred
+		cyberduck
+		notebook
+		sourcetree
+		scrivner
+		R
+		iterm2
+		Aquamacs (if you absolutely must)
 
 
+
+3. configuring
+	generate new ssh keys.
+	run 'mkdir ~/.ssh' to make a home for ssh keys
+	go to bluehost and follow instructions for ssh key generation and installation
+	go https://help.github.com/articles/generating-ssh-keys/ to read how to generate github keys.
+	

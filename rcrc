@@ -1,7 +1,7 @@
 # COPY_ALWAYS=""
 # COPY_ALWAYS=""
 DOTFILES_DIRS="/Users/tom/.dotfiles"
-EXCLUDES="Restore-list.txt caskinstaller.sh README"
+EXCLUDES="Restore-list.txt caskinstaller.sh brewinstaller.sh README python_requirements.txt"
 HOSTNAME="tcbook"
 TAGS="programming git R python ruby"
 SYMLINK_DIRS="pandoc ipython pip"
