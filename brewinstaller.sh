@@ -4,7 +4,7 @@
 # ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"	
 
 
-
+# Critical
 brew tap caskroom/cask
 brew install caskroom/cask/brew-cask
 brew tap homebrew/dupes
@@ -14,5 +14,7 @@ brew install rcm
 brew install git
 
 
-
+# Misc
 brew install boxes
+
+brew install npm

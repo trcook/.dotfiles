@@ -39,6 +39,7 @@ This document is a list of what to do to get up and running after hd format and 
 		marked
 	Run brewinstaller.sh to install homebrew and some homebrew packages.
 	Run caskinstaller.sh to install a bunch of apps:
+	 -- make sure environment vars are set properly. they are specified in .bash_profile
 		alfred
 		dash
 		rstudio
@@ -61,8 +62,25 @@ This document is a list of what to do to get up and running after hd format and 
 
 
 3. configuring
-	generate new ssh keys.
+	- generate new ssh keys.
 	run 'mkdir ~/.ssh' to make a home for ssh keys
 	go to bluehost and follow instructions for ssh key generation and installation
 	go https://help.github.com/articles/generating-ssh-keys/ to read how to generate github keys.
-	
+
+	- Make sure casks are setup properly -- see env.vars setup in bash.profile.
+
+	- install mactex and install custom latex files:
+			mkdir ~/Library/texmf
+			cd ~/Library/texmf
+			git pull https://github.com/trcook/my_latex_templates.git
+
+
+
+
+4. Some odds and ends
+
+	- reinstall npm via brewinstaller.sh or: brew install npm
+	- use npm to install some things: 
+		- npm-install grunt -g
+		- npm-install grunt-inline -g
+

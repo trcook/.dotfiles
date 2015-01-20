@@ -25,7 +25,6 @@ Author={Thomas Cook}}
 
 
 \usepackage{booktabs}%This package provide some additional commands to enhance the quality of tables in LaTeX. Guidelines are given as to what constitutes a good table in this context.
-\usepackage{ctable} %use for some tables, esp appendix a and for tables in analysis. Is needed for footnotes in tables.
 
 
 \ifxetex
@@ -53,7 +52,7 @@ $if(biblatex)$
 %   \printtext{\bibstring{in}\intitlepunct}}}
 
   % Set biblatex
-\usepackage[natbib=true,style=authoryear-comp,autocite=plain]{biblatex}
+\usepackage[natbib=true,style=authoryear-comp,autocite=plain,backend=bibtex]{biblatex}
 
 %the following will supress the word in: in article citations
 \renewbibmacro{in:}{%
@@ -73,10 +72,10 @@ $if(biblatex)$
   {\usebibmacro{citeindex}%
    \usebibmacro{citeyear}}
   {}
-  {\usebibmacro{cite:postnote}}
+  {\usebibmacro{postnote}}
 
 $if(biblio-files)$
-\bibliography{$biblio-files$}
+%\bibliography{$biblio-files$}
 \addbibresource{$biblio-files$}
 $endif$
 $endif$
@@ -226,6 +225,9 @@ $endif$
 
 \usepackage{sfgame} % sets up to use game
  \setbeamercovered{invisible} % sets semi-visibility for covered items
+
+\usepackage{ctable} %use for some tables, esp appendix a and for tables in analysis. Is needed for footnotes in tables. Must be loaded last to work in latex 2014
+
 \begin{document}
 
 $if(title)$
@@ -253,13 +255,13 @@ $else$
 \renewcommand\refname{$biblio-title$}
 $endif$
 $endif$
-\bibliography{$biblio-files$}
+% \bibliography{$biblio-files$}
 
 $endif$
 $endif$
 $if(biblatex)$
 %\printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
-
+\printbibliography
 $endif$
 $for(include-after)$
 $include-after$
