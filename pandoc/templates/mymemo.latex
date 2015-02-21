@@ -1,5 +1,9 @@
 \documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$lang$,$endif$$if(papersize)$$papersize$,$endif$]{$documentclass$}
+$if(biblatex)$
+\usepackage{mymemobiblatex}
+$else$
 \usepackage{mymemo}
+$endif$
 
 $for(header-includes)$
 $header-includes$
@@ -33,14 +37,18 @@ $else$
 \renewcommand\refname{$biblio-title$}
 $endif$
 $endif$
-\bibliography{$biblio-files$}
+
 
 $endif$
 $endif$
+$if(biblio-files)$
 $if(biblatex)$
 \printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
-
+$else$
 $endif$
+\bibliography{$biblio-files$}
+$endif$
+
 $for(include-after)$
 $include-after$
 

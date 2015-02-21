@@ -1598,19 +1598,20 @@ END ada-box
 
 BOX boxquote-r
 
-author "Christian Molls <CMolls@gmx.net>"
-revdate "Die Aug 15 23:02:02 CEST 2000"
-created "Die Aug 15 23:01:50 CEST 2000"
+author "Thomas Cook <CMolls@gmx.net>"
+revdate "01/20/15 16:56:35"
+created "01/20/15 16:56:44"
 revision "1.0"
 
 sample
-    ,----[ mp3-wav ]
-    | #!/bin/sh
-    | # konvertiert im aktuellen Verzeichnis .mp3 in .wav
-    | for i in *.mp3; do
-    |   mpg123 -v  --stereo --rate 44100 -w "`basename "$i" .mp3`".wav "$i"
-    | done
-    `----
+
+    #-------------------------------------------------------------------------------
+    #      #!/bin/sh
+    #      # konvertiert im aktuellen Verzeichnis .mp3 in .wav
+    #      for i in *.mp3; do
+    #      mpg123 -v  --stereo --rate 44100 -w "`basename "$i" .mp3`".wav "$i"
+    #      done
+    #-------------------------------------------------------------------------------
 ends
 
 shapes {
@@ -1620,7 +1621,7 @@ shapes {
 }
 
 padding {
-    horiz 1
+    vert 1
 }
 
 elastic (w,n,s)

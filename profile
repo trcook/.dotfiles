@@ -13,10 +13,10 @@ alias apache2ctl="sudo /opt/local/apache2/bin/apachectl"
 alias emacsclient="/Applications/Aquamacs.app/Contents/MacOS/bin/emacsclient"
 
 
-
-export PATH="$PATH:$HOME/.rvm/bin:." # Add RVM to PATH for scripting
+export PATH="/Users/tom/Library/TeX/LocalTeX/texbin:$PATH" # Add texbin for local tex prefpane
+export PATH="/usr/local/share/python:$PATH" # Add RVM to PATH for scripting
 export PYTHONSTARTUP=~/.pythonrc
-launchctl setenv PATH /Library/Frameworks/Python.framework/Versions/3.4/bin:/Users/tom/.rvm/gems/ruby-2.0.0-p451@global/bin:/Users/tom/.rvm/rubies/ruby-2.0.0-p451/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/opt:/opt/X11/bin:/usr/texbin:/Users/tom/.rvm/bin:/Users/tom/.rvm/bin
+launchctl setenv PATH /Users/tom/.rvm/gems/ruby-2.0.0-p451@global/bin:/Users/tom/.rvm/rubies/ruby-2.0.0-p451/bin:/usr/local/bin:/usr/local/sbin:/usr/local/share/python:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/opt:/opt/X11/bin:/usr/texbin:/Users/tom/.rvm/bin:/Users/tom/.rvm/bin:/Library/Frameworks/Python.framework/Versions/3.4/bin
 
 # This prints the directory in the tab window
 if [ $ITERM_SESSION_ID ]; then

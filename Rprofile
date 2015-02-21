@@ -22,5 +22,16 @@ if(interactive()){
 dissertation_home<-"~/Documents/Boulder/Projects/Dissertation/Data"
 .boxcar_token<-"fbk7wDNoTKbP8BJb9U4k"
 require('tmisc')
-print("hello! I'm the default .Rprofile")
+## .First() run at the start of every R session. 
+## Use to load commonly used packages? 
+.First <- function() {
+  # library(ggplot2)
+  if(file.exists(path.expand("~/.Rprofile"))){
+  cat("\n Hello! I'm the Default .Rprofile at",path.expand("~/.Rprofile"), "\n")
+  }else{
+    cat("\n Hello! I'm .Rprofile loaded from an unknown location")
+    .Rprofiles_loaded<-list('~/.Rprofile')
+  }
+  
+}
 .Rprofiles_loaded<-list('~/.Rprofile')
