@@ -1,22 +1,17 @@
 #! /bin/bash
 
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
+
+# Terminal Customization:
+# set prompt
 export PS1='\#|(\t)\w$'
 
+#set colors
 export CLICOLOR="cons25"
 #export LSCOLORS=ehfxcxdxbxegedabagacex
-export PYTHONPATH=/usr/local/lib/python2.7/site-packages
-#re-enable this path if necessarry, but it shouldn't be necessarry
-#export PATH=/Users/tom/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/texbin:/Users/tom/.rvm/bin
-
-alias apache2ctl="sudo /opt/local/apache2/bin/apachectl"
-alias emacsclient="/Applications/Aquamacs.app/Contents/MacOS/bin/emacsclient"
 
 
-export PATH="/Users/tom/Library/TeX/LocalTeX/texbin:$PATH" # Add texbin for local tex prefpane
-export PATH="/usr/local/share/python:$PATH" # Add RVM to PATH for scripting
-export PYTHONSTARTUP=~/.pythonrc
-launchctl setenv PATH /Users/tom/.rvm/gems/ruby-2.0.0-p451@global/bin:/Users/tom/.rvm/rubies/ruby-2.0.0-p451/bin:/usr/local/bin:/usr/local/sbin:/usr/local/share/python:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/opt:/opt/X11/bin:/usr/texbin:/Users/tom/.rvm/bin:/Users/tom/.rvm/bin:/Library/Frameworks/Python.framework/Versions/3.4/bin
 
 # This prints the directory in the tab window
 if [ $ITERM_SESSION_ID ]; then
@@ -29,4 +24,22 @@ fi
 alias aqua="aquamacs"
 alias cdf='cd "$(posd)"'
 alias sourcetree="stree"
+
+alias apache2ctl="sudo /opt/local/apache2/bin/apachectl"
+alias emacsclient="/Applications/Aquamacs.app/Contents/MacOS/bin/emacsclient"
+
+# Other Environment var customization:
+
+export PYTHONPATH=/usr/local/lib/python2.7/site-packages
+#export PATH="/Users/tom/Library/TeX/LocalTeX/texbin:$PATH" # Add texbin for local tex prefpane
+#export PATH="/usr/local/share/python:$PATH" # Add RVM to PATH for scripting
+export PYTHONSTARTUP=~/.pythonrc
+
+
+# PATH RELATED COMMANDS
+
+export PATH=$PATH:/Library/Frameworks/Python.framework/Versions/3.4/bin
+
+# Keep this near the end of .profile. It sets path for gui apps in "os x"
+launchctl setenv PATH $PATH
 
