@@ -1,0 +1,32 @@
+#! /bin/bash
+
+# This variable marks path var as set
+INVOCATION_ORDER+=('pathsrc')
+
+
+export INVOCATION_ORDER
+
+export MYPATHSET=1
+
+# PATH RELATED COMMANDS
+
+export PATH="/Users/tom/Library/TeX/LocalTeX/texbin:$PATH" # Add texbin for local tex prefpane
+
+export PATH=$PATH:/Library/Frameworks/Python.framework/Versions/3.4/bin
+
+export PATH="/usr/local/share/python:$PATH" # Add RVM to PATH for scripting
+
+# Keep this near the end of .profile. It sets path for gui apps in "os x"
+
+launchctl setenv PATH $PATH
+
+export PATH="$PATH:/usr/local/share/python" # Add RVM to PATH for scripting
+
+# N
+PATH="$(echo $PATH | perl -e 'print join(":", grep { not $seen{$_}++ } split(/:/, scalar <>))')"
+
+launchctl setenv PATH $PATH
+
+
+
+

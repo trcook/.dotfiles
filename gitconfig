@@ -18,6 +18,6 @@
 	tool = diffmerge
 
 [difftool "diffmerge"]
-	cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --nosplash  \"$REMOTE\" \"$LOCAL\"
+	cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --nosplash \"$REMOTE\" \"$LOCAL\"
 [init]
 	templatedir = ~/.git_template
