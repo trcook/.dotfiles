@@ -22,11 +22,32 @@ launchctl setenv PATH $PATH
 
 export PATH="$PATH:/usr/local/share/python" # Add RVM to PATH for scripting
 
-# N
+## Remove duplicated paths
 PATH="$(echo $PATH | perl -e 'print join(":", grep { not $seen{$_}++ } split(/:/, scalar <>))')"
 
+export PATH
+## export to system wide configuration
 launchctl setenv PATH $PATH
 
+# additional global environment variables
 
 
+# Specify defaults for homebrew cask in this environment variable
+export HOMEBREW_CASK_OPTS="--appdir=/Applications --caskroom=/usr/local/Caskroom"
+
+
+
+
+# Other Environment var customization:
+
+export PYTHONPATH=/usr/local/lib/python2.7/site-packages
+
+export PYTHONSTARTUP=~/.pythonrc
+
+
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Devel
+export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
+
+source /usr/local/bin/virtualenvwrapper_lazy.sh
 

@@ -19,6 +19,7 @@ if(interactive()){
 
 
 # Some global variables that I always use: 
+   dissertation_root<-"~/Documents/Boulder/Projects/Dissertation/"
 dissertation_home<-"~/Documents/Boulder/Projects/Dissertation/Data"
 .boxcar_token<-"fbk7wDNoTKbP8BJb9U4k"
 require('tmisc')

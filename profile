@@ -18,17 +18,9 @@ if [ $(contains "${INVOCATION_ORDER[@]}" "profile") == "n" ]; then source ~/.bas
 
 
 
-# Specify defaults for homebrew cask in this environment variable
-export HOMEBREW_CASK_OPTS="--appdir=/Applications --caskroom=/usr/local/Caskroom"
 
+### all environment vars moved to MOVED TO PATHSRC
 
-
-
-# Other Environment var customization:
-
-export PYTHONPATH=/usr/local/lib/python2.7/site-packages
-
-export PYTHONSTARTUP=~/.pythonrc
 
 if [ -z ${MYPATHSET+x} ];   then ''; else  source ~/.pathsrc; fi;
 

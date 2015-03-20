@@ -17,7 +17,7 @@ function contains(){ local n=$#;local value=${!n}; for ((i=1;i < $#;i++)) do if 
 # Run the function over profile and bashrc
 if [ $(contains "${INVOCATION_ORDER[@]}" "proile") == "n" ]; then source ~/.profile; fi;
 if [ $(contains "${INVOCATION_ORDER[@]}" "bashrc") == "n" ];  then source ~/.bashrc; fi;
-if [ `containsElement "profile"` -eq 1 ];   then ''; else  source ~/.pathsrc; fi;
+
 
 
 

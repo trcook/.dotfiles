@@ -74,7 +74,8 @@ This document is a list of what to do to get up and running after hd format and 
 			cd ~/Library/texmf
 			git pull https://github.com/trcook/my_latex_templates.git
 
-
+	- install oh my zsh:
+			curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 
 
 4. Some odds and ends

@@ -1,0 +1,5 @@
+# /bin/zsh
+
+alias -g scratch=~/Desktop/tmp
+
+# Most paths and env vars moved to  pathsrc
