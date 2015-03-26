@@ -2,4 +2,7 @@
 
 alias -g scratch=~/Desktop/tmp
 
+# fix starcluster autocomplete (zsh specific)
+source ~/.myzsh.d/starcluster.sh
+# see ~/.myzsh.d/ for more customizations.
 # Most paths and env vars moved to  pathsrc
