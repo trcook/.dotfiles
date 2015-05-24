@@ -51,3 +51,5 @@ export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
 
 source /usr/local/bin/virtualenvwrapper_lazy.sh
 
+# Some access stuff for aws -- do not put actual file  in .dotfiles repo!
+source ~/.aws/awsrc.sh
