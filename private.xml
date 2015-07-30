@@ -1,0 +1,149 @@
+<?xml version="1.0"?>
+<root>
+	<appdef>
+		<appname>MACVIM</appname>
+		<equal>org.vim.MacVim</equal>
+	</appdef>
+	<appdef>
+		<appname>CHROME</appname>
+		<equal>com.google.Chrome</equal>
+	</appdef>
+	<appdef>
+		<appname>MATHEMATICA</appname>
+		<equal>com.wolfram.Mathematica</equal>
+	</appdef>
+	<appdef>
+		<appname>RSTUDIO</appname>
+		<equal>org.rstudio.RStudio</equal>
+	</appdef>
+	<item>
+		<name>Change Right Command Key to Escape</name>
+		<identifier>private.right_command_to_escape</identifier>
+		<only>MACVIM</only>
+		<autogen>__KeyToKey__ KeyCode::COMMAND_R, KeyCode::ESCAPE</autogen>
+	</item>
+	<item>
+		<name>Change Right Option Key to Left Shift</name>
+		<identifier>private.right_option_to_Left_shift</identifier>
+		<autogen>__KeyToKey__ KeyCode::OPTION_R, KeyCode::SHIFT_L</autogen>
+	</item>
+	<!-- TAB key changed to act as ESC, for MacVim only -->
+	<item>
+		<name>Change Tab to Esc in MacVim</name>
+		<identifier>private.macvimdef</identifier>
+		<only>MACVIM</only>
+		<autogen>__KeyToKey__ KeyCode::TAB, ModifierFlag::NONE, KeyCode::ESCAPE</autogen>
+	</item>
+	<!-- Emacs for Mathematica keys -->
+	<item>
+		<name>Change option to left right in mathematica</name>
+		<identifier>private.mathematicadef</identifier>
+		<only>MATHEMATICA</only>
+		<autogen>__KeyToKey__ 
+			KeyCode::B, ModifierFlag::OPTION_L,
+			KeyCode::CURSOR_LEFT, ModifierFlag::OPTION_L
+		</autogen>
+		<autogen>__KeyToKey__ 
+			KeyCode::B, ModifierFlag::OPTION_R,
+			KeyCode::CURSOR_RIGHT, ModifierFlag::OPTION_L
+		</autogen>
+		<autogen>__KeyToKey__ 
+			KeyCode::F, ModifierFlag::OPTION_L,
+			KeyCode::CURSOR_RIGHT, ModifierFlag::OPTION_L
+		</autogen>
+		<autogen>__KeyToKey__ 
+			KeyCode::F, ModifierFlag::OPTION_R,
+			KeyCode::CURSOR_RIGHT, ModifierFlag::OPTION_L
+		</autogen>
+		<autogen>__KeyToKey__ 
+			KeyCode::V, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL,
+			KeyCode::PAGEDOWN
+		</autogen>
+		<autogen>__KeyToKey__ 
+			KeyCode::V, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION,
+			KeyCode::PAGEUP
+		</autogen>
+	</item>
+<!-- 	<item>
+		<name>page up and down fix</name>
+		<identifier>private.mathematicadefpgup</identifier>
+		<only>MATHEMATICA</only>
+		<autogen>__KeyToKey__ 
+			KeyCode::V, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL,
+			KeyCode::PAGEDOWN
+		</autogen>
+		
+	</item> -->
+	<!-- Changes for rstudio -->
+	<item>
+		<name>Fix Keys for Rstudio</name>
+		<identifier>private.rstudiodef</identifier>
+		<only>RSTUDIO</only>
+		<autogen>__KeyToKey__ 
+			KeyCode::B, ModifierFlag::OPTION_L,
+			KeyCode::CURSOR_LEFT, ModifierFlag::OPTION_L
+		</autogen>
+		<autogen>__KeyToKey__ 
+			KeyCode::B, ModifierFlag::OPTION_R,
+			KeyCode::CURSOR_RIGHT, ModifierFlag::OPTION_L
+		</autogen>
+		<autogen>__KeyToKey__ 
+			KeyCode::F, ModifierFlag::OPTION_L,
+			KeyCode::CURSOR_RIGHT, ModifierFlag::OPTION_L
+		</autogen>
+		<autogen>__KeyToKey__ 
+			KeyCode::F, ModifierFlag::OPTION_R,
+			KeyCode::CURSOR_RIGHT, ModifierFlag::OPTION_L
+		</autogen>
+		<autogen>__KeyToKey__ 
+			KeyCode::V, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL,
+			KeyCode::PAGEDOWN
+		</autogen>
+		<autogen>__KeyToKey__ 
+			KeyCode::V, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION,
+			KeyCode::PAGEUP
+		</autogen>
+		<autogen>__KeyToKey__ 
+			KeyCode::P, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL,
+			KeyCode::CURSOR_UP
+		</autogen>
+		<autogen>__KeyToKey__ 
+			KeyCode::D, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION,
+			KeyCode::FORWARD_DELETE, ModifierFlag::OPTION_L
+		</autogen>
+	</item>
+	<!-- GOOGLE CHROME CUSTOMIZATIONS -->
+		<item>
+		<name>Fix Keys for Chrome</name>
+		<identifier>private.chromedef</identifier>
+		<only>CHROME</only>
+		<autogen>__KeyToKey__ 
+			KeyCode::B, ModifierFlag::OPTION_L,
+			KeyCode::CURSOR_LEFT, ModifierFlag::OPTION_L
+		</autogen>
+		<autogen>__KeyToKey__ 
+			KeyCode::B, ModifierFlag::OPTION_R,
+			KeyCode::CURSOR_RIGHT, ModifierFlag::OPTION_L
+		</autogen>
+		<autogen>__KeyToKey__ 
+			KeyCode::F, ModifierFlag::OPTION_L,
+			KeyCode::CURSOR_RIGHT, ModifierFlag::OPTION_L
+		</autogen>
+		<autogen>__KeyToKey__ 
+			KeyCode::F, ModifierFlag::OPTION_R,
+			KeyCode::CURSOR_RIGHT, ModifierFlag::OPTION_L
+		</autogen>
+		<autogen>__KeyToKey__ 
+			KeyCode::V, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL,
+			KeyCode::PAGEDOWN
+		</autogen>
+		<autogen>__KeyToKey__ 
+			KeyCode::V, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION,
+			KeyCode::PAGEUP
+		</autogen>
+		<autogen>__KeyToKey__ 
+			KeyCode::P, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL,
+			KeyCode::CURSOR_UP
+		</autogen>
+	</item>
+</root>
